@@ -1,4 +1,14 @@
+import { useContext, useEffect } from "react";
+import ThemeContext from "../context/ThemeContext";
+
 export default function Card() {
+    const {theme } = useContext(ThemeContext)
+
+    useEffect(() => {
+        document.querySelector('html').classList.remove("light", "dark")
+        document.querySelector('html').classList.add(theme)
+      }, [theme])
+
     return (
         <div className="w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <a href="/">
